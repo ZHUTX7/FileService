@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password:
+    url: jdbc:mysql://:3306/database_name?useSSL=false&characterEncoding=UTF-8&autoReconnect=true&allowMultiQueries=true
+    username:
+    hikari:
+      minimum-idle: 5           # 最小空闲数，默认值为10
+      maximum-pool-size: 15     # 最大连接数，默认值为10
+      auto-commit: true         # 控制从池返回的连接的默认自动提交行为
+      idle-timeout: 30000       # 控制允许连接在池中闲置的最长时间，默认值10min
+      pool-name: FileService   # 连接池的用户定义名称，主要出现在日志记录和JMX管理控制台中以识别池和池配置。 默认：自动生成
+      max-lifetime: 1800000     # 池中连接的最大生存期，默认值30min
+      connection-timeout: 30000 # 控制客户端将等待来自池的连接的最大毫秒数，默认值为30s
+      connection-test-query: SELECT 'x'
+minio:
+  endpoint: http://xxx:9000
+  accessKey: admin
+  secretKey: admin123456
+
